@@ -85,18 +85,18 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'user_db',
-       'USER': '',
-       'PASSWORD': '',
+       'USER': 'postgres',
+       'PASSWORD': 'kasim1234@K',
        'HOST': 'localhost',
        'PORT': '',
    },
     'mongo_db':{
         'ENGINE':'djongo',
-        'NAME':'connect_with_postgresql',#DB name
+        'NAME':'connect_with_postgresql',
         'CLIENT':{
-            'host':'mongodb+srv://<username>:<password>@cluster0.cworye2.mongodb.net/',
-            'username':'',
-            'password':'',
+            'host':'mongodb+srv://kasim:kasim@cluster0.cworye2.mongodb.net/',
+            'username':'kasim',
+            'password':'kasim',
         }
     }
 }

@@ -15,15 +15,15 @@ class UserRegistration(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         user_pic =serializer.validated_data['user_pic']
-        first_name =serializer.validated_data['first_name']
-        last_name =serializer.validated_data['last_name']
+        fullname =serializer.validated_data['fullname']
+        phone_no =serializer.validated_data['phone_no']
         email =serializer.validated_data['email']
         password =serializer.validated_data['password']
         # print(make_password(password), ";;;;;;;;;;;;;;;;;;;;;;;;;;;;")
         if Registration.objects.filter(email=email).exists():
-            raise serializers.ValidationError("Email already exisit")
+            raise serializers.ValidationError("Email already exists")
         else:    
-            Obj= Registration(first_name=first_name ,last_name=last_name ,email=email ,password=make_password(password))
+            Obj= Registration(fullname=fullname ,phone_no=phone_no ,email=email ,password=make_password(password))
             Obj.save()
             Obj_Image= Registration(user_pic=user_pic)
             Obj_Image.save(using='mongo_db')
