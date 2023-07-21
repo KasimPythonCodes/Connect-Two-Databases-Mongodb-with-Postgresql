@@ -11,6 +11,7 @@ from django.contrib.auth.hashers import make_password
 class UserRegistration(GenericAPIView):
     serializer_class = UserRegistrationSerializer
     queryset = Registration.objects.all()
+    
     def post(self ,request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
